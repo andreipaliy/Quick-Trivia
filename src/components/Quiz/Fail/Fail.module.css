@@ -1,0 +1,39 @@
+.failPage {
+	background-color: rgb(255, 65, 65);
+	color: white;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+}
+.tryAgainBtn {
+	display: block;
+	font-size: 20px;
+	color: white;
+	text-transform: uppercase;
+	padding: 8px 33px;
+	border: 1px solid white;
+	background-color: transparent;
+	text-decoration: none;
+	margin-bottom: 30px;
+	transition: all 0.4s;
+}
+.tryAgainBtn:hover {
+	background-color: white;
+	color: rgb(255, 94, 94);
+}
+.line {
+	min-width: 500px;
+	min-height: 1px;
+
+	background-color: white;
+}
+.countQuestionsPassed {
+	font-size: 43px;
+	margin: 0;
+}
+.summarSection {
+	min-height: 300px;
+}
