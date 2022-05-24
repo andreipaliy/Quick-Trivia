@@ -19,10 +19,32 @@ const Fail = props => {
 				{props.passedQ.length}
 			</h1>
 			<div className={styles.summarSection}>
+				<div className={styles.incorrectQResponded}>
+					{props.failedQ.map((item, i) => {
+						return (
+							<div key={i} className={styles.failedQItem}>
+								<h4 className={styles.summaryQheader}>
+									Failed Question
+								</h4>
+								<p>
+									<b>Question: </b>
+									{item.question}
+								</p>
+								<p>
+									<b>Correct answer: </b>
+									{item.correct_answer}
+								</p>
+							</div>
+						)
+					})}
+				</div>
 				<div className={styles.correctQResponded}>
 					{props.passedQ.map((item, i) => {
 						return (
 							<div key={i} className={styles.QItem}>
+								<h4 className={styles.summaryQheader}>
+									Passed Question
+								</h4>
 								<p>
 									<b>Question: </b>
 									{item.question}

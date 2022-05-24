@@ -19,6 +19,7 @@
 	text-decoration: none;
 	margin-bottom: 30px;
 	transition: all 0.4s;
+	box-shadow: rgba(92, 92, 92, 0.24) 0px 3px 8px;
 }
 .tryAgainBtn:hover {
 	background-color: white;
@@ -43,9 +44,24 @@
 }
 .QItem {
 	padding: 12px 40px;
-	background-color: rgb(187 227 163);
+	background-color: rgb(222 225 127);
 	color: black;
 	font-size: 16px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	margin-bottom: 25px;
+}
+.incorrectQResponded {
+	min-height: 100px;
+}
+.failedQItem {
+	padding: 12px 40px;
+	background-color: rgb(255, 134, 134);
+	color: black;
+	font-size: 16px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	margin-bottom: 25px;
+}
+.summaryQheader {
+	margin-top: 5px;
+	text-align: center;
 }

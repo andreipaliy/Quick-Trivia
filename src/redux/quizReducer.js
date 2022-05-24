@@ -12,6 +12,7 @@ let initialState = {
 	questions: [],
 	currentQ: null,
 	passedQ: [],
+	failedQ: [],
 	continue: null,
 	speed: 30000,
 }
@@ -54,7 +55,10 @@ const quizReducer = (state = initialState, action) => {
 						...state,
 						passedQ: [...state.passedQ.concat(state.currentQ)],
 				  }
-				: { ...state }
+				: {
+						...state,
+						failedQ: [...state.failedQ.concat(state.currentQ)],
+				  }
 		case SET_SPEED:
 			debugger
 			return {

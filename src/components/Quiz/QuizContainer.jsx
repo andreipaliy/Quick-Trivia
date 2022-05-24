@@ -42,6 +42,7 @@ class QuizContainer extends React.Component {
 					<Fail
 						passedQ={this.props.passedQ}
 						getQuestions={this.props.getQuestions}
+						failedQ={this.props.failedQ}
 					/>
 				) : (
 					<img
@@ -61,6 +62,7 @@ function mapStateToProps(state) {
 		continue: state.quizPage.continue,
 		passedQ: state.quizPage.passedQ,
 		speed: state.quizPage.speed,
+		failedQ: state.quizPage.failedQ,
 	}
 }
 
