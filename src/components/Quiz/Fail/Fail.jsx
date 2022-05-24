@@ -18,9 +18,24 @@ const Fail = props => {
 			<h1 className={styles.countQuestionsPassed}>
 				{props.passedQ.length}
 			</h1>
-			{/* <div className={styles.summarSection}>
-				<div></div>
-			</div> */}
+			<div className={styles.summarSection}>
+				<div className={styles.correctQResponded}>
+					{props.passedQ.map((item, i) => {
+						return (
+							<div key={i} className={styles.QItem}>
+								<p>
+									<b>Question: </b>
+									{item.question}
+								</p>
+								<p>
+									<b>Your correct answer: </b>
+									{item.correct_answer}
+								</p>
+							</div>
+						)
+					})}
+				</div>
+			</div>
 		</div>
 	)
 }

@@ -69,6 +69,11 @@ class Question extends React.Component {
 						)
 					})}
 				</ul>
+				<div className={styles.points}>
+					<span className={styles.diamond}>0</span>
+					<span className={styles.dummyDiamond}>0</span>
+					<span></span>
+				</div>
 			</div>
 		)
 	}

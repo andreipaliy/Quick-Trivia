@@ -8,11 +8,11 @@ import {
 	changeCurrentQ,
 } from '../../redux/quizReducer'
 import Preloader from '../../assets/Preloader.gif'
+import styles from './QuizContainer.module.css'
 
 class QuizContainer extends React.Component {
 	componentDidMount() {
 		this.props.getQuestions()
-		// setTimeout(() => this.props.checkResponse(null), this.props.speed)
 	}
 	componentDidUpdate(prevProps) {
 		if (
@@ -31,20 +31,23 @@ class QuizContainer extends React.Component {
 		return (
 			<>
 				{this.props.continue ? (
-					this.props.currentQ ? (
-						<Quiz
-							question={this.props.currentQ.question}
-							answers={this.props.currentQ.answers}
-							submitResponse={this.submitResponse}
-							speed={this.props.speed}
-						/>
-					) : (
-						<img src={Preloader} />
-					)
-				) : (
+					// this.props.currentQ ? (
+					<Quiz
+						question={this.props.currentQ.question}
+						answers={this.props.currentQ.answers}
+						submitResponse={this.submitResponse}
+						speed={this.props.speed}
+					/>
+				) : this.props.currentQ ? (
 					<Fail
 						passedQ={this.props.passedQ}
 						getQuestions={this.props.getQuestions}
+					/>
+				) : (
+					<img
+						className={styles.preloader}
+						src={Preloader}
+						alt='preloader'
 					/>
 				)}
 			</>

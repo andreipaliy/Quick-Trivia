@@ -1,9 +1,10 @@
 .question {
-	padding: 0 300px;
+	padding: 0 120px;
 	text-align: center;
 }
 .variants {
 	margin-top: 0;
+	padding: 0;
 }
 .variant {
 	margin: 20px;
@@ -24,6 +25,8 @@
 	align-items: center;
 	background-color: bisque;
 	position: relative;
+	border-top: 2px solid grey;
+	border-bottom: 2px solid grey;
 }
 .timer {
 	font-size: 20px;
@@ -35,4 +38,61 @@
 	position: absolute;
 	top: -43px;
 	z-index: -1;
+	font-weight: 700;
+	background: rgb(34, 193, 195);
+	background: linear-gradient(
+		0deg,
+		rgba(34, 193, 195, 1) 0%,
+		rgba(253, 187, 45, 1) 100%
+	);
+}
+.points {
+	font-size: 20px;
+	color: white;
+	min-width: 120px;
+	padding: 8px 38px;
+	padding-top: 20px;
+	background-color: #a8c69f;
+	border-radius: 17px;
+	position: absolute;
+	top: 162px;
+	z-index: -1;
+	display: flex;
+	justify-content: center;
+	background: rgb(169, 243, 75);
+	background: linear-gradient(
+		90deg,
+		rgba(169, 243, 75, 1) 0%,
+		rgba(178, 65, 65, 1) 100%
+	);
+}
+.diamond {
+	padding-left: 30px;
+	margin-right: 20px;
+	position: relative;
+	font-weight: 700;
+}
+.diamond::before {
+	content: '';
+	position: absolute;
+	background: url(../../../assets/diamond.png);
+	width: 24px;
+	height: 24px;
+	left: -2px;
+	top: 3px;
+}
+.dummyDiamond {
+	padding-right: 30px;
+	margin-left: 20px;
+	position: relative;
+	font-weight: 700;
+}
+.dummyDiamond::after {
+	content: '';
+	position: absolute;
+	background: url(../../../assets/dummyDiamond.png);
+	width: 24px;
+	height: 24px;
+	right: -2px;
+	top: 3px;
 }
