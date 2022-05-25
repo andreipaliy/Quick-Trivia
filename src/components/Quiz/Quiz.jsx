@@ -12,6 +12,9 @@ class Quiz extends React.Component {
 					answers={this.props.answers}
 					submitResponse={this.props.submitResponse}
 					speed={this.props.speed}
+					diamondPoints={this.props.diamondPoints}
+					dummyPoints={this.props.dummyPoints}
+					skipQ={this.props.skipQ}
 				/>
 			</>
 		)

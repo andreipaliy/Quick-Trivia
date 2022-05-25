@@ -5,9 +5,12 @@ const instance = axios.create({
 })
 
 export const quizAPI = {
-	getQuestions(questions = 50) {
+	getQuestions(category, questions = 50) {
+		debugger
 		return instance
-			.get(`?amount=10&category=9&difficulty=easy&type=boolean`)
+			.get(
+				`?amount=50${category === 'any' ? '' : '&category=' + category}`
+			)
 			.then(response => {
 				return response.data
 			})

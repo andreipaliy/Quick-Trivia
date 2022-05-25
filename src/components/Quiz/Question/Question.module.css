@@ -32,6 +32,7 @@
 	cursor: auto;
 	font-size: 20px;
 	color: white;
+	min-width: 150px;
 	padding: 8px 38px;
 	padding-bottom: 20px;
 	background-color: #a8c69f;
@@ -57,7 +58,8 @@
 	background-color: #a8c69f;
 	border-radius: 17px;
 	position: absolute;
-	top: 162px;
+	top: 155px;
+	min-width: 150px;
 	z-index: -1;
 	display: flex;
 	justify-content: center;
@@ -97,4 +99,32 @@
 	height: 24px;
 	right: -2px;
 	top: 3px;
+}
+.skipBtn {
+	color: white;
+	font-size: 17px;
+	text-decoration: none;
+	padding: 1px 10px;
+	margin-right: 20px;
+	border: 1px solid;
+	border-radius: 7px;
+	font-weight: 100;
+	transition: all 0.6s;
+	position: relative;
+}
+.skipBtn:hover {
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+	border-color: black;
+}
+.skipBtn:hover::after {
+	content: 'It const +5 dummy points...';
+	position: absolute;
+	min-width: 178px;
+	padding: 2px 5px;
+	background-color: rgb(88 86 110);
+	border-radius: 4px;
+	top: 34px;
+	left: 0px;
+	font-size: 15px;
 }
