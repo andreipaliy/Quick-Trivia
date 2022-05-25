@@ -140,3 +140,24 @@
 .buttons {
 	display: flex;
 }
+.intructions {
+	color: white;
+	/* min-width: 173px; */
+	font-size: 20px;
+	padding: 7px 33px;
+	background-color: transparent;
+	border: 1px solid white;
+	text-decoration: none;
+	position: relative;
+}
+.intructions:hover::after {
+	content: "This is Quick Trivia, a game of minds! The goal of the game is to answer correcty as much questions as you can.First of all, you can choose from the above menu what kind of questions you want to get, you can select the field as well as the level of difficulty. Also you cand choose how much time you have allocated for giving an answer. When you start the game - you get a question, and one diamond point as a gift. After reading te question, you shoud choose answer by clicking on it, and submit it by pressing the buttom submit. If your answer is the right one - you'll be greeted with one more diamond point. But if your answer was wrong - you'll get a dummy point. As long as you have more diamond points than dummy points, the game will continue. Also, you can skip the questions, but it will costs you 0.5 dummy points. Good luck!";
+	position: absolute;
+	padding: 11px 31px;
+	font-size: 16px;
+	min-width: 1157px;
+	left: -179px;
+	top: 51px;
+	background-color: rgb(0 0 0 / 21%);
+	border-radius: 8px;
+}

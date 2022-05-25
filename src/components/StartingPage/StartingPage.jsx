@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import styles from './StartingPage.module.css'
 import { setSpeed, setCategory, setDifficulty } from '../../redux/quizReducer'
@@ -48,6 +48,7 @@ const StartingPage = props => {
 		<div className={styles.mainPage}>
 			<h1 className={styles.header}>Starting Quick Trivia</h1>
 			<div className={styles.buttons}>
+				<div className={styles.intructions}>Instructions</div>
 				<div className={styles.dropdown}>
 					<button className={styles.dropbtn}>
 						{props.speed
