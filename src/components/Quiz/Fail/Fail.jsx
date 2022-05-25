@@ -3,7 +3,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 class Fail extends React.Component {
 	startNewGame = () => {
-		this.props.getQuestions(this.props.category)
+		this.props.getQuestions(this.props.category, this.props.difficulty)
 	}
 	resetData = () => {
 		this.props.resetState()
@@ -54,7 +54,11 @@ class Fail extends React.Component {
 							return (
 								<div key={i} className={styles.failedQItem}>
 									<h4 className={styles.summaryQheader}>
-										Failed Question
+										Failed Question{' '}
+										{i +
+											1 +
+											'/' +
+											this.props.failedQ.length}
 									</h4>
 									<p>
 										<b>Question: </b>
@@ -73,7 +77,11 @@ class Fail extends React.Component {
 							return (
 								<div key={i} className={styles.QItem}>
 									<h4 className={styles.summaryQheader}>
-										Passed Question
+										Passed Question{' '}
+										{i +
+											1 +
+											'/' +
+											this.props.passedQ.length}
 									</h4>
 									<p>
 										<b>Question: </b>

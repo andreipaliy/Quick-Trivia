@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styles from './StartingPage.module.css'
-import { setSpeed, setCategory } from '../../redux/quizReducer'
+import { setSpeed, setCategory, setDifficulty } from '../../redux/quizReducer'
 import { connect } from 'react-redux'
 import { useState } from 'react'
 
@@ -34,6 +34,9 @@ const StartingPage = props => {
 		32: 'Entertainment: Cartoon and Animations',
 	}
 	const setSpeed = e => props.setSpeed(e.target.innerText)
+	const setDifficulty = e => {
+		props.setDifficulty(e.target.innerText.toLowerCase())
+	}
 	const setCategory = e => {
 		setCategoryString(categories[e.target.dataset.value])
 		props.setCategory(e.target.dataset.value)
@@ -41,7 +44,6 @@ const StartingPage = props => {
 	let [categoryString, setCategoryString] = useState(
 		categories[props.category]
 	)
-
 	return (
 		<div className={styles.mainPage}>
 			<h1 className={styles.header}>Starting Quick Trivia</h1>
@@ -106,23 +108,24 @@ const StartingPage = props => {
 						</span>
 					</div>
 				</div>
-				{/* <div className={styles.dropdown}>
-					<button className={styles.dropbtn}>Difficulcy</button>
-					<div className={styles.dropdownContent} onClick={setSpeed}>
-						<span>5 seconds</span>
-						<span>10 seconds</span>
-						<span>15 seconds</span>
-						<span>20 seconds</span>
-						<span>25 seconds</span>
-						<span>30 seconds</span>
-						<span>35 seconds</span>
-						<span>40 seconds</span>
-						<span>45 seconds</span>
-						<span>50 seconds</span>
-						<span>55 seconds</span>
-						<span>60 seconds</span>
+				<div className={styles.dropdown}>
+					<button className={styles.dropbtn}>
+						{props.difficulty
+							? props.difficulty.charAt(0).toUpperCase() +
+							  props.difficulty.slice(1)
+							: 'Select difficulty'}
+					</button>
+					<div
+						className={styles.dropdownContent}
+						onClick={setDifficulty}
+					>
+						{' '}
+						<span>Any</span>
+						<span>Easy</span>
+						<span>Medium</span>
+						<span>Hard</span>
 					</div>
-				</div> */}
+				</div>
 				<Link to='/quiz' className={styles.playBtn}>
 					Play
 				</Link>
@@ -133,6 +136,11 @@ const StartingPage = props => {
 const mapStateToProps = state => ({
 	speed: state.quizPage.speed,
 	category: state.quizPage.category,
+	difficulty: state.quizPage.difficulty,
 })
 
-export default connect(mapStateToProps, { setSpeed, setCategory })(StartingPage)
+export default connect(mapStateToProps, {
+	setSpeed,
+	setCategory,
+	setDifficulty,
+})(StartingPage)

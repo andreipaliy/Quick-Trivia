@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import React from 'react'
 import Quiz from './Quiz'
 import Fail from './Fail/Fail'
+import ErrorQ from './Error/ErrorQ'
 import {
 	getQuestions,
 	checkResponse,
@@ -14,10 +15,26 @@ import Preloader from '../../assets/Preloader.gif'
 import styles from './QuizContainer.module.css'
 
 class QuizContainer extends React.Component {
+	// catchAllUnhandledErrors = event => {
+	// 	debugger
+	// 	event.preventDefault()
+	// 	console.log(event.reason, event.promise)
+	// 	debugger
+	// }
 	componentDidMount() {
 		debugger
-		this.props.getQuestions(this.props.category)
+		// window.addEventListener(
+		// 	'unhandledrejection',
+		// 	this.catchAllUnhandledErrors
+		// )
+		this.props.getQuestions(this.props.category, this.props.difficulty)
 	}
+	// componentWillUnmount() {
+	// 	window.removeEventListener(
+	// 		'unhandledrejection',
+	// 		this.catchAllUnhandledErrors
+	// 	)
+	// }
 	componentDidUpdate(prevProps) {
 		if (
 			prevProps.diamondPoints < this.props.diamondPoints ||
@@ -28,9 +45,9 @@ class QuizContainer extends React.Component {
 				: this.props.uploadNewQ(this.props.category)
 		}
 	}
-	submitResponse = event => {
+	submitResponse = response => {
 		debugger
-		if (event) this.props.checkResponse(event.target.innerText)
+		if (response) this.props.checkResponse(response)
 		else this.props.checkResponse(null)
 	}
 	skipQ = () => {
@@ -39,8 +56,12 @@ class QuizContainer extends React.Component {
 	}
 
 	render() {
+		debugger
 		return (
 			<>
+				{this.props.error && (
+					<ErrorQ resetState={this.props.resetState} />
+				)}
 				{this.props.diamondPoints > this.props.dummyPoints &&
 				this.props.currentQ ? (
 					<Quiz
@@ -59,14 +80,15 @@ class QuizContainer extends React.Component {
 						failedQ={this.props.failedQ}
 						resetState={this.props.resetState}
 						category={this.props.category}
+						difficulty={this.props.difficulty}
 						skippedQcounter={this.props.skippedQcounter}
 					/>
 				) : (
-					<img
-						className={styles.preloader}
-						src={Preloader}
-						alt='preloader'
-					/>
+					<>
+						{this.props.error ? null : (
+							<div className={styles.preloader} />
+						)}
+					</>
 				)}
 			</>
 		)
@@ -84,6 +106,8 @@ function mapStateToProps(state) {
 		questionsRemains: state.quizPage.questions.length,
 		category: state.quizPage.category,
 		skippedQcounter: state.quizPage.skippedQcounter,
+		difficulty: state.quizPage.difficulty,
+		error: state.quizPage.error,
 	}
 }
 

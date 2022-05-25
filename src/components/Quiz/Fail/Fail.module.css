@@ -7,6 +7,57 @@
 	justify-content: center;
 	align-items: center;
 	margin: 0;
+	background: linear-gradient(76deg, #f26161, #7ebd36, #2ca6d3);
+	background-size: 600% 600%;
+
+	-webkit-animation: AnimationName 30s ease infinite;
+	-moz-animation: AnimationName 30s ease infinite;
+	-o-animation: AnimationName 30s ease infinite;
+	animation: AnimationName 30s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+	0% {
+		background-position: 76% 0%;
+	}
+	50% {
+		background-position: 25% 100%;
+	}
+	100% {
+		background-position: 76% 0%;
+	}
+}
+@-moz-keyframes AnimationName {
+	0% {
+		background-position: 76% 0%;
+	}
+	50% {
+		background-position: 25% 100%;
+	}
+	100% {
+		background-position: 76% 0%;
+	}
+}
+@-o-keyframes AnimationName {
+	0% {
+		background-position: 76% 0%;
+	}
+	50% {
+		background-position: 25% 100%;
+	}
+	100% {
+		background-position: 76% 0%;
+	}
+}
+@keyframes AnimationName {
+	0% {
+		background-position: 76% 0%;
+	}
+	50% {
+		background-position: 25% 100%;
+	}
+	100% {
+		background-position: 76% 0%;
+	}
 }
 .tryAgainBtn {
 	display: block;
@@ -52,7 +103,7 @@
 }
 .failedQItem {
 	padding: 12px 40px;
-	background-color: rgb(255, 134, 134);
+	background-color: rgb(255 233 233);
 	color: black;
 	font-size: 16px;
 	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;

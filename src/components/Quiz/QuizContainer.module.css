@@ -1,4 +1,7 @@
 .preloader {
-	min-width: 100%;
-	min-height: 100%;
+	background-image: url(.../../../../assets/Preloader.gif);
+	background-size: cover;
+	min-width: 100vh;
+	min-height: 100vh;
+	background-position: 0 -160px;
 }

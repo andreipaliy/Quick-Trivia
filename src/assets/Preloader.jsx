@@ -1,3 +1,0 @@
-const Preloader = () => {
-	return null
-}
