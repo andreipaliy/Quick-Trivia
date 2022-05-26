@@ -1,9 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import styles from './StartingPage.module.css'
 import { setSpeed, setCategory, setDifficulty } from '../../redux/quizReducer'
-import { connect } from 'react-redux'
-import { useState } from 'react'
 
 const StartingPage = props => {
 	const categories = {

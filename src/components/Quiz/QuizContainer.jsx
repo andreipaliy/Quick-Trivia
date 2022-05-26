@@ -1,8 +1,9 @@
-import { connect } from 'react-redux'
 import React from 'react'
-import Quiz from './Quiz'
+import { connect } from 'react-redux'
+import Question from './Question/Question'
 import Fail from './Fail/Fail'
 import ErrorQ from './Error/ErrorQ'
+import styles from './QuizContainer.module.css'
 import {
 	getQuestions,
 	checkResponse,
@@ -11,60 +12,39 @@ import {
 	resetState,
 	skipCurrentQuestion,
 } from '../../redux/quizReducer'
-import Preloader from '../../assets/Preloader.gif'
-import styles from './QuizContainer.module.css'
 
 class QuizContainer extends React.Component {
-	// catchAllUnhandledErrors = event => {
-	// 	debugger
-	// 	event.preventDefault()
-	// 	console.log(event.reason, event.promise)
-	// 	debugger
-	// }
 	componentDidMount() {
-		debugger
-		// window.addEventListener(
-		// 	'unhandledrejection',
-		// 	this.catchAllUnhandledErrors
-		// )
 		this.props.getQuestions(this.props.category, this.props.difficulty)
 	}
-	// componentWillUnmount() {
-	// 	window.removeEventListener(
-	// 		'unhandledrejection',
-	// 		this.catchAllUnhandledErrors
-	// 	)
-	// }
+
 	componentDidUpdate(prevProps) {
 		if (
 			prevProps.diamondPoints < this.props.diamondPoints ||
 			prevProps.dummyPoints < this.props.dummyPoints
 		) {
-			this.props.questionsRemains
+			this.props.questionsRemains // if there's not enough question - get another portion
 				? this.props.changeCurrentQ()
 				: this.props.uploadNewQ(this.props.category)
 		}
 	}
 	submitResponse = response => {
-		debugger
 		if (response) this.props.checkResponse(response)
-		else this.props.checkResponse(null)
+		else this.props.checkResponse(null) // is triggered if time is over
 	}
 	skipQ = () => {
-		debugger
 		this.props.skipCurrentQuestion()
 	}
 
 	render() {
-		debugger
 		return (
 			<>
-				{this.props.error && (
+				{this.props.error && ( // if variable error from redux is true - ErrorPage is displayed
 					<ErrorQ resetState={this.props.resetState} />
 				)}
-				{this.props.diamondPoints > this.props.dummyPoints &&
+				{this.props.diamondPoints > this.props.dummyPoints && // if true - game continues
 				this.props.currentQ ? (
-					<Quiz
+					<Question
 						question={this.props.currentQ.question}
 						answers={this.props.currentQ.answers}
 						submitResponse={this.submitResponse}
@@ -76,16 +56,16 @@ class QuizContainer extends React.Component {
 				) : this.props.currentQ ? (
 					<Fail
 						passedQ={this.props.passedQ}
-						getQuestions={this.props.getQuestions}
 						failedQ={this.props.failedQ}
+						skippedQcounter={this.props.skippedQcounter}
+						getQuestions={this.props.getQuestions}
 						resetState={this.props.resetState}
 						category={this.props.category}
 						difficulty={this.props.difficulty}
-						skippedQcounter={this.props.skippedQcounter}
 					/>
 				) : (
 					<>
-						{this.props.error ? null : (
+						{this.props.error ? null : ( // if it's not error but just waiting server to answer
 							<div className={styles.preloader} />
 						)}
 					</>
@@ -96,6 +76,7 @@ class QuizContainer extends React.Component {
 }
 
 function mapStateToProps(state) {
+	// date from redux
 	return {
 		currentQ: state.quizPage.currentQ,
 		passedQ: state.quizPage.passedQ,
@@ -112,6 +93,7 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, {
+	// functions from redux
 	getQuestions,
 	checkResponse,
 	changeCurrentQ,

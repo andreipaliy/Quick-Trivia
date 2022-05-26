@@ -8,11 +8,9 @@ class Question extends React.Component {
 		selectedResponse: null,
 	}
 	selectResponse(e) {
-		debugger
 		this.setState({ selectedResponse: e.target.innerText })
 	}
 	componentDidMount() {
-		debugger
 		if (this.props.answers.length) {
 			this.timer =
 				this.props.answers.length > 0
@@ -27,8 +25,6 @@ class Question extends React.Component {
 		}
 	}
 	componentDidUpdate(prevProps) {
-		debugger
-
 		if (prevProps !== this.props) {
 			clearInterval(this.timer)
 			this.setState({ time: this.props.speed / 1000 })
@@ -51,7 +47,6 @@ class Question extends React.Component {
 	}
 
 	render() {
-		debugger
 		return (
 			<div className={styles.questionBlock}>
 				<div className={styles.timer}>
@@ -79,20 +74,15 @@ class Question extends React.Component {
 				<button
 					className={styles.submitBtn}
 					onClick={() => {
-						debugger
 						this.props.submitResponse(this.state.selectedResponse)
 					}}
 				>
 					Submit
 				</button>
 				<div className={styles.points}>
-					<a
-						href='#'
-						onClick={this.props.skipQ}
-						className={styles.skipBtn}
-					>
+					<span onClick={this.props.skipQ} className={styles.skipBtn}>
 						Skip
-					</a>
+					</span>
 					<span className={styles.diamond}>
 						{this.props.diamondPoints}
 					</span>

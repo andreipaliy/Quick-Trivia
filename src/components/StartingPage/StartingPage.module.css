@@ -7,17 +7,6 @@
 	-moz-animation: AnimationName 30s ease infinite;
 	-o-animation: AnimationName 30s ease infinite;
 	animation: AnimationName 30s ease infinite;
-	/* background: #2c3e50; /* fallback for old browsers */
-	/* background: -webkit-linear-gradient( */
-	/* to right,
-		#fd746c,
-		#2c3e50
-	); Chrome 10-25, Safari 5.1-6 */
-	/* background: linear-gradient(
-		to right,
-		#fd746c,
-		#2c3e50
-	); W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
 	display: flex;
 	flex-direction: column;
@@ -94,7 +83,6 @@
 	background-color: transparent;
 	border: 1px solid white;
 	text-decoration: none;
-	/* margin-top: 30px; */
 	transition: all 0.4s;
 }
 
@@ -142,7 +130,6 @@
 }
 .intructions {
 	color: white;
-	/* min-width: 173px; */
 	font-size: 20px;
 	padding: 7px 33px;
 	background-color: transparent;

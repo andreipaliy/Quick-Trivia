@@ -1,5 +1,5 @@
-import styles from './Fail.module.css'
 import React from 'react'
+import styles from './Fail.module.css'
 import { Link } from 'react-router-dom'
 class Fail extends React.Component {
 	startNewGame = () => {
