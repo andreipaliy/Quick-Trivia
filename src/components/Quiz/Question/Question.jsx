@@ -11,6 +11,7 @@ class Question extends React.Component {
 		this.setState({ selectedResponse: e.target.innerText })
 	}
 	componentDidMount() {
+		// setting the timer when mounting the page
 		if (this.props.answers.length) {
 			this.timer =
 				this.props.answers.length > 0
@@ -25,6 +26,7 @@ class Question extends React.Component {
 		}
 	}
 	componentDidUpdate(prevProps) {
+		// update timer if in component comes new data
 		if (prevProps !== this.props) {
 			clearInterval(this.timer)
 			this.setState({ time: this.props.speed / 1000 })
@@ -40,10 +42,10 @@ class Question extends React.Component {
 					: null
 		}
 		if (this.state.time === 0 && prevProps === this.props)
-			this.props.submitResponse()
+			this.props.submitResponse() // if time is over => submit response w/o data
 	}
 	componentWillUnmount() {
-		clearInterval(this.timer)
+		clearInterval(this.timer) // cleaning timeouts before unmounting ;)
 	}
 
 	render() {
