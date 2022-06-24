@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/Quick-Trivia/static/css/main.a941d445.css",
-    "main.js": "/Quick-Trivia/static/js/main.ce685031.js",
+    "main.js": "/Quick-Trivia/static/js/main.66acb285.js",
     "static/js/787.3f296264.chunk.js": "/Quick-Trivia/static/js/787.3f296264.chunk.js",
     "static/media/error.png": "/Quick-Trivia/static/media/error.d37b26ab595f5537ccfd.png",
     "index.html": "/Quick-Trivia/index.html",
     "main.a941d445.css.map": "/Quick-Trivia/static/css/main.a941d445.css.map",
-    "main.ce685031.js.map": "/Quick-Trivia/static/js/main.ce685031.js.map",
+    "main.66acb285.js.map": "/Quick-Trivia/static/js/main.66acb285.js.map",
     "787.3f296264.chunk.js.map": "/Quick-Trivia/static/js/787.3f296264.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a941d445.css",
-    "static/js/main.ce685031.js"
+    "static/js/main.66acb285.js"
   ]
 }
