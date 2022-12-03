@@ -5,6 +5,7 @@ import StartingPage from './components/StartingPage/StartingPage'
 import QuizConnected from './components/Quiz/QuizContainer'
 
 const App = () => {
+	console.log('Testing log...')
 	return (
 		<div>
 			<BrowserRouter>
